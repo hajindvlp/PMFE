@@ -1,7 +1,7 @@
 import axios from 'axios';
 import qs from 'querystring';
 
-const apiEndpoint = 'http://45.32.16.148:3000';
+const apiEndpoint = 'https://45.32.16.148:3000';
 
 function auth(id, pw, callback) {
   let url = `${apiEndpoint}/api/user/auth`;
