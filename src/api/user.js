@@ -1,8 +1,21 @@
-import jwt from 'jsonwebtoken';
+import axios from 'axios';
 
-function getUserData(token) {
-  let decTok = jwt.decode(token);
-  return decTok;
+const apiEndpoint = 'https://45.32.16.148:3000';
+
+function setUserData(token, callback) {
+  let url = `${apiEndpoint}/api/user/me`;
+  const config = {
+    headers: {
+      'x-access-token': token
+    }
+  };
+
+  axios.get(url, config)
+    .then((res) => {
+      callback(res.status, res.data, false);
+    }).catch((err) => {
+      callback(null, null, true);
+    })
 }
 
-export {getUserData};
+export {setUserData};

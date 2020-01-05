@@ -62,6 +62,7 @@ export default class Login extends Component {
       if(status === 200) {
         localStorage.setItem('authorized', true);
         localStorage.setItem('token', token);
+
         alert("logged in");
         this.setState({redirect: '/'});
       } else if(err) {
